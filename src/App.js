@@ -1,24 +1,21 @@
-import logo from './logo.svg';
+import {Provider} from 'react-redux';
+import {store} from "./redux";
+import {CMain, CPersonCart} from "./components";
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
+import {createBrowserHistory} from "history";
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store = {store}>
+      <Router history = {createBrowserHistory}>
+        <Switch>
+          <Route exact path = "/characters" component = {CMain}/>
+          <Route exact path = "/characters/:id" component= {({match}) => <CPersonCart id = {match.params.id} /> }/>
+          <Route render={() => <Redirect to="/characters" />} />
+        </Switch>
+      </Router>
+    </Provider>
   );
 }
 
