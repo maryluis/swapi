@@ -11,7 +11,7 @@ function App() {
       <Router history = {createBrowserHistory}>
         <Switch>
           <Route exact path = "/characters" component = {CMain}/>
-          <Route exact path = "/characters/:id" component= {({match}) => <CPersonCart id = {match.params.id} /> }/>
+          <Route exact path = "/characters/:id" component= {CPersonCart}/>
           <Route render={() => <Redirect to="/characters" />} />
         </Switch>
       </Router>

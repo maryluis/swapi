@@ -1,29 +1,30 @@
 import { bindActionCreators } from "redux";
 import { connect } from 'react-redux';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { actionGetOneData } from "../redux/dataOnePerson";
 import { useEffect } from "react";
 import { image } from "../tools";
 
-export const PersonCart = ({data = {}, getData, id="", state}) => {
+export const PersonCart = ({data = {}, getData,}) => {
+    let { id } = useParams(); 
     useEffect(() => getData(id), [getData, id]);
 
-    const { birth_year } = data
+    const { birth_year, name, eye_color, gender, hair_color, height, mass, skin_color } = data;
 
     return(
         <div>
             <Link className="noDecoration darkColor" to="/">Main</Link>
             <div className="flex column alignCenter">
-                <h4 className="textCenter">{data.name}</h4>
+                <h4 className="textCenter">{name}</h4>
                 <img src={image} alt="space" width="300"/>
                 <ul>
                     <li>Birth year: {birth_year}</li>
-                    <li>Eye color: {data.eye_color}</li>
-                    <li>Gender: {data.gender}</li>
-                    <li>Hair color: {data.hair_color}</li>
-                    <li>Height: {data.height}</li>
-                    <li>Mass: {data.mass}</li>
-                    <li>Skin color: {data.skin_color}</li>
+                    <li>Eye color: {eye_color}</li>
+                    <li>Gender: {gender}</li>
+                    <li>Hair color: {hair_color}</li>
+                    <li>Height: {height}</li>
+                    <li>Mass: {mass}</li>
+                    <li>Skin color: {skin_color}</li>
                 </ul>
             </div>
         </div>

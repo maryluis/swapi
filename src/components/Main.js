@@ -2,10 +2,10 @@ import { actionGetData } from "../redux";
 import { useEffect, useState } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from 'react-redux';
-import { image, numberFromUrl } from "../tools";
+import { image, getIdFromUrl } from "../tools";
 import { Link } from "react-router-dom";
 
-const Main = ({ state, getData, items = [], lastPage}) => {
+const Main = ({ getData, items = [], lastPage}) => {
     const [page, changePage] = useState(1);
     useEffect(() => getData(page), [page, getData]);
     return(
@@ -13,7 +13,7 @@ const Main = ({ state, getData, items = [], lastPage}) => {
 
             <div className="flex spaceAround wrap marginBottom">
                 {items.map((item) => 
-                <Link className="noDecoration darkColor" key={item.created} to={`characters/${numberFromUrl(item.url)}`}>
+                <Link className="noDecoration darkColor" key={item.created} to={`characters/${getIdFromUrl(item.url)}`}>
                     <div className="flex column">
                         <h4 className="textCenter">{item.name}</h4>
                         <img src={image} alt="space" width="170" height="100"/>
@@ -30,10 +30,8 @@ const Main = ({ state, getData, items = [], lastPage}) => {
     )
 }
 const mapStateToProps = (state) => ({
-    state: state,
     items: state.data.results,
     lastPage: state.data.next,
-    //
 });
 
 const mapDispatchToProps = (dispatch)=> bindActionCreators({
