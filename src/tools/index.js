@@ -1,11 +1,11 @@
-export const mainUrl = "https://swapi.dev/api/";
+export const MAIN_URL = "https://swapi.dev/api/";
 
 export const getPageUrl = (page) => {
-   return `${mainUrl}people/?page=${page}`;
+   return `${MAIN_URL}people/?page=${page}`;
 }
 
 export const getPersonUrl = (number) => {
-    return `${mainUrl}people/${number}`
+    return `${MAIN_URL}people/${number}`
 }
 
 
@@ -28,4 +28,4 @@ export function getIdFromUrl(str="") {
 }
 
 
-export const image = "https://knowhow.pp.ua/wp-content/uploads/2020/06/01_astronaut_Yes-Outer-Space-Has-a-Smell%E2%80%94Here%E2%80%99s-What-It-Smells-Like_241509286_Andrey-Armyagov-0620.jpg";
+export const IMG = "https://knowhow.pp.ua/wp-content/uploads/2020/06/01_astronaut_Yes-Outer-Space-Has-a-Smell%E2%80%94Here%E2%80%99s-What-It-Smells-Like_241509286_Andrey-Armyagov-0620.jpg";

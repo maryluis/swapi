@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link, useParams } from "react-router-dom";
 import { actionGetOneData } from "../redux/dataOnePerson";
 import { useEffect } from "react";
-import { image } from "../tools";
+import { IMG } from "../tools";
 
 export const PersonCart = ({data = {}, getData,}) => {
     let { id } = useParams(); 
@@ -16,7 +16,7 @@ export const PersonCart = ({data = {}, getData,}) => {
             <Link className="noDecoration darkColor" to="/">Main</Link>
             <div className="flex column alignCenter">
                 <h4 className="textCenter">{name}</h4>
-                <img src={image} alt="space" width="300"/>
+                <img src={IMG} alt="space" width="300"/>
                 <ul>
                     <li>Birth year: {birth_year}</li>
                     <li>Eye color: {eye_color}</li>

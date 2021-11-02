@@ -2,7 +2,7 @@ import { actionGetData } from "../redux";
 import { useEffect, useState } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from 'react-redux';
-import { image, getIdFromUrl } from "../tools";
+import { IMG, getIdFromUrl } from "../tools";
 import { Link } from "react-router-dom";
 
 const Main = ({ getData, items = [], lastPage}) => {
@@ -16,7 +16,7 @@ const Main = ({ getData, items = [], lastPage}) => {
                 <Link className="noDecoration darkColor" key={item.created} to={`characters/${getIdFromUrl(item.url)}`}>
                     <div className="flex column">
                         <h4 className="textCenter">{item.name}</h4>
-                        <img src={image} alt="space" width="170" height="100"/>
+                        <img src={IMG} alt="space" width="170" height="100"/>
                         <span className="textCenter">birth year: {item.birth_year}</span>
                     </div>
                 </Link>)}
